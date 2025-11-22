@@ -1,10 +1,11 @@
-"""3. ДЗ по ООП. Реализация системы управления студентами"""
+"""3. ДЗ по ООП. Реализация системы управления студентами."""
 
 class Student:
-    """Класс студента с базовыми характеристиками"""
+    """Класс студента с базовыми характеристиками."""
 
     def __init__(self, name:str, age:int):
-        """
+        """Инициализация объекта студента.
+
         Args:
             name (str): имя студента
             age (int):  Возраст студента.
@@ -13,7 +14,7 @@ class Student:
         self._age = age
 
     def __str__(self):
-        """Человекочитаемое строковое представление объекта
+        """Человекочитаемое строковое представление объекта.
 
         Returns:
             str: информация о студенте в удобной для пользователя форме
@@ -21,7 +22,7 @@ class Student:
         return self.get_info()
 
     def __repr__(self):
-        """Техническое строковое представление объекта для разработчика
+        """Техническое строковое представление объекта для разработчика.
 
         Returns:
             str: полная информация о студенте для диагностики
@@ -29,7 +30,7 @@ class Student:
         return f'Student(name = {self.name}, age = {self.age})'
 
     def get_info(self)->str:
-        """Возвращает строку с информацией о студенте
+        """Возвращает строку с информацией о студенте.
 
         Returns:
             str: информация о студенте
@@ -38,10 +39,11 @@ class Student:
 
 
 class GraduateStudent(Student):
-    """Класс магистранта/аспиранта, расширающий класс Student"""
+    """Класс магистранта/аспиранта, расширающий класс Student."""
 
     def __init__(self, name:str, age:int, research_topic:str):
-        """
+        """Инициализация объекта магистранта/аспиранта.
+
         Args:
             name (str): имя студента
             age (int):  возраст студента
@@ -53,7 +55,7 @@ class GraduateStudent(Student):
         self.__publications = 0
 
     def __repr__(self):
-        """Техническое строковое представление объекта для разработчика
+        """Техническое строковое представление объекта для разработчика.
 
         Returns:
             str: полная информация о студенте для диагностики
@@ -62,7 +64,7 @@ class GraduateStudent(Student):
                 f'_research_topic={self._research_topic}, __publications={self.__publications})')
 
     def get_info(self)->str:
-        """Возвращает строку с информацией о студенте
+        """Возвращает строку с информацией о студенте.
 
         Returns:
             str: информация о студенте
@@ -73,11 +75,11 @@ class GraduateStudent(Student):
         #return f'Студент {self.name}, возраст {self._age}, тема: {self._research_topic}'
 
     def add_publication(self):
-        """Увеличение количества публикаций на 1"""
+        """Увеличение количества публикаций на 1."""
         self.__publications += 1
 
     def get_publications(self)->int:
-        """Получение количества публикаций
+        """Получение количества публикаций.
 
         Returns:
             int: количество публикаций
@@ -86,14 +88,14 @@ class GraduateStudent(Student):
 
 
 class StudentManager():
-    """Класс системы управления студентами"""
+    """Класс системы управления студентами."""
 
     def __init__(self):
-        """Инициализация пустого менеджера студентов"""
+        """Инициализация пустого менеджера студентов."""
         self.student_list = []
 
     def __getitem__(self, index):
-        """Получение студента по индексу
+        """Получение студента по индексу.
 
         Args:
             index (int): индекс студента в списке
@@ -104,7 +106,7 @@ class StudentManager():
         return self.student_list[index]
     
     def __len__(self):
-        """Возвращает количество студентов в менеджере
+        """Возвращает количество студентов в менеджере.
 
         Returns:
             int: количество студентов
@@ -112,7 +114,7 @@ class StudentManager():
         return len(self.student_list)
 
     def add_student(self, student):
-        """Добавление студента в менеджер
+        """Добавление студента в менеджер.
 
         Args:
             student (Student): объект студента для добавления
@@ -120,7 +122,7 @@ class StudentManager():
         self.student_list.append(student)
 
     def print_all_info(self):
-        """Выводит информацию обо всех студентах в менеджере
+        """Выводит информацию обо всех студентах в менеджере.
 
         Используется метод "get_info" каждого студента, поддерживая полиморфизм
         """
@@ -130,8 +132,8 @@ class StudentManager():
 # Образец использования:
 manager = StudentManager()
 
-student1 = Student("Анна", 20)
-student2 = GraduateStudent("Петр", 25, "AI")
+student1 = Student('Анна', 20)
+student2 = GraduateStudent('Петр', 25, 'AI')
 
 manager.add_student(student1)
 manager.add_student(student2)

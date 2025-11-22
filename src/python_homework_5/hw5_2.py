@@ -1,10 +1,11 @@
-"""2. ДЗ по ООП. Расширение класса Student"""
+"""2. ДЗ по ООП. Расширение класса Student."""
 
 class Student:
-    """Класс студента с базовыми характеристиками"""
+    """Класс студента с базовыми характеристиками."""
 
     def __init__(self, name:str, age:int):
-        """
+        """Инициализация объекта студента.
+
         Args:
             name (str): Имя студента
             age (int):  Возраст студента
@@ -21,10 +22,11 @@ class Student:
         return f'Студент {self.name}, возраст {self._age}'
 
 class GraduateStudent(Student):
-    """Класс магистранта/аспиранта, расширающий класс Student"""
+    """Класс магистранта/аспиранта, расширающий класс Student."""
 
     def __init__(self, name:str, age:int, research_topic:str):
-        """
+        """Инициализация объекта магистранта/аспиранта.
+
         Args:
             name (str): Имя студента
             age (int):  Возраст студента
@@ -47,11 +49,11 @@ class GraduateStudent(Student):
         #return f'Студент {self.name}, возраст {self._age}, тема: {self._research_topic}'
 
     def add_publication(self):
-        """Увеличение количества публикаций на 1"""
+        """Увеличение количества публикаций на 1."""
         self.__publications += 1
 
     def get_publications(self)->int:
-        """Получение количества публикаций
+        """Получение количества публикаций.
 
         Returns:
             int: количество публикаций
@@ -59,7 +61,7 @@ class GraduateStudent(Student):
         return self.__publications
 
 #Инициализация объекта GraduateStudent
-grad_student = GraduateStudent("Петр", 25, "Искусственный интеллект")
+grad_student = GraduateStudent('Петр', 25, 'Искусственный интеллект')
 print(grad_student.get_info())
 
 #Проверка количества публикаций
