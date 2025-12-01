@@ -1,4 +1,4 @@
-# Python-homework-4
+# Python-homework-5
 
 Выполнение домашнего задания №5. ООП в Python.
 
